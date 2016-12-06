@@ -1,4 +1,4 @@
-const segments = {
+const programs = {
   "Morning back stretching": [
     { secs: 10, caption: "Hamstring strech position"},
     { secs: 30, caption: "Right hamstring stretch" },
@@ -137,4 +137,4 @@ const segments = {
   ],
 };
 
-export default segments;
+export default programs;

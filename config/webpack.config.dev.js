@@ -76,8 +76,11 @@ module.exports = {
     // https://github.com/facebookincubator/create-react-app/issues/290
     extensions: ['.js', '.json', '.jsx', ''],
     alias: {
-      Components: './src/components',
-      Util: './src/util',
+      Actions: paths.srcActions,
+      Components: paths.srcComponents,
+      Reducers: paths.srcReducers,
+      Store: paths.srcStore,
+      Util: paths.srcUtil,
     }
   },
 

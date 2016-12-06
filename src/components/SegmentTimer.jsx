@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { clickNextSegment } from 'Actions/controls-actions';
 
 class SegmentTimer extends Component {
   constructor(props) {
@@ -32,7 +34,7 @@ class SegmentTimer extends Component {
   }
 
   render() {
-    const { children } = this.props;
+    const { children, onClickNextSegment } = this.props;
     const { currentSegment, playing } = this.state;
 
     return (
@@ -42,7 +44,7 @@ class SegmentTimer extends Component {
           <button onClick={() => this.setState({currentSegment: currentSegment - 1})}>&lt;</button>
         )}
         {currentSegment < children.length - 1 && (
-          <button onClick={() => this.setState({currentSegment: currentSegment + 1})}>&gt;</button>
+          <button onClick={onClickNextSegment}>&gt;</button>
         )}
         {playing ?
           <button onClick={this.onStop}>Stop</button> :
@@ -53,4 +55,9 @@ class SegmentTimer extends Component {
     );
   }
 }
-export default SegmentTimer;
+
+const mapDispatchToProps = dispatch => ({
+  onClickNextSegment: () => dispatch(clickNextSegment),
+});
+
+export default connect(undefined, mapDispatchToProps)(SegmentTimer);

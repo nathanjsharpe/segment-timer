@@ -35,6 +35,11 @@ module.exports = {
   testsSetup: resolveApp('src/setupTests.js'),
   appNodeModules: resolveApp('node_modules'),
   ownNodeModules: resolveApp('node_modules'),
+  srcActions: resolveApp('src/actions'),
+  srcComponents: resolveApp('src/components'),
+  srcReducers: resolveApp('src/reducers'),
+  srcStore: resolveApp('src/store'),
+  srcUtil: resolveApp('src/util'),
   nodePaths: nodePaths
 };
 
