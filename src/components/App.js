@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import SegmentTimer from './SegmentTimer';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
-import Segment from './Segment';
-import segments from './segments';
-import Controls from './Controls';
+import SegmentTimer from 'Components/SegmentTimer';
+import Segment from 'Components/Segment';
+import segments from 'Components/segments';
+import Controls from 'Components/Controls';
 
 class App extends Component {
   constructor(props) {

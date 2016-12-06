@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { say } from './speech';
+import { say } from 'Util/speech';
 
 class Segment extends Component {
   static defaultProps = {
