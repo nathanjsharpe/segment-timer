@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import SegmentTimer from './SegmentTimer';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import AppBar from 'material-ui/AppBar';
 import Segment from './Segment';
 import segments from './segments';
+import Controls from './Controls';
 
 class App extends Component {
   constructor(props) {
@@ -21,30 +24,37 @@ class App extends Component {
     const { currentSegment } = this.state;
 
     return (
-      <div className="App">
-        <h2>Segment Timer</h2>
-        <p>Choose segment:</p>
-        <ul>
-          {Object.keys(segments).map(segment => (
-            <li>
-              <a href="#" onClick={e => this.onSelectSegment(e, segment)}>
-                {segment}
-              </a>
-            </li>
-          ))}
-        </ul>
+      <MuiThemeProvider>
+        <div className="App">
+          <AppBar title="Segment Timer" />
+          <p>Choose segment:</p>
+          <ul>
+            {Object.keys(segments).map(segment => (
+              <li key={segment}>
+                <a href="#" onClick={e => this.onSelectSegment(e, segment)}>
+                  {segment}
+                </a>
+              </li>
+            ))}
+          </ul>
 
-        {currentSegment && (
-          <div className="content">
-            <h2>{currentSegment}</h2>
-            <SegmentTimer>
-              {segments[currentSegment].map((segment, index) => (
-                <Segment key={index} {...segment} />
-              ))}
-            </SegmentTimer>
-          </div>
-        )}
-      </div>
+          {currentSegment && (
+            <div className="content">
+              <h2>{currentSegment}</h2>
+              <SegmentTimer>
+                {segments[currentSegment].map((segment, index) => (
+                  <Segment key={index} {...segment} />
+                ))}
+              </SegmentTimer>
+            </div>
+          )}
+
+          <Controls
+            selectedIndex={0}
+            onSelect={x => console.log(x)}
+          />
+        </div>
+      </MuiThemeProvider>
     );
   }
 }
